@@ -345,8 +345,44 @@ Forge is successful when:
 
 ---
 
+## Upgrade Path: CLI → Temporal
+
+v1 is CLI + files. v2 could be Temporal workflows.
+
+### Why Not Temporal for v1
+
+| Concern | Why Not Yet |
+|---------|-------------|
+| **Infrastructure** | Temporal requires PostgreSQL, workers, server |
+| **Complexity** | Learning curve for durable execution patterns |
+| **Scale** | Single developer, not distributed team |
+| **Iteration** | CLI is faster to change than workflow code |
+
+### v1: CLI + Files
+
+```bash
+gt pool create → mkdir .agents/pools/<name>/
+gt gate select → cp to .agents/selected/<stage>.md
+gt stage advance → echo <stage> > .agents/stage
+```
+
+### v2: Temporal Activities (Future)
+
+```go
+workflow.ExecuteActivity(ctx, CreatePoolActivity, ...)
+workflow.ExecuteActivity(ctx, GateSelectActivity, ...)
+workflow.ExecuteActivity(ctx, StageAdvanceActivity, ...)
+```
+
+The state locations don't change. The CLI becomes a Temporal client.
+
+**Research:** See `.agents/research/2026-01-24-temporal-ratchets-research.md`
+
+---
+
 ## References
 
 - [Gas Town](https://github.com/steveyegge/gastown) - The primitive layer
 - [Beads](https://github.com/steveyegge/beads) - Issue tracking
 - [BROWNIAN-RATCHET.md](../BROWNIAN-RATCHET.md) - Philosophy document
+- [Apollo Temporal Spec](../olympus/crew/goku/specs/APOLLO-TEMPORAL-SPEC.md) - Temporal workflow patterns
