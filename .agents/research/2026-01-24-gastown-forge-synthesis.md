@@ -1,3 +1,11 @@
+---
+id: research-2026-01-24-gastown-forge-synthesis-2
+type: research
+date: '2026-01-24'
+rig: gastown-forge
+status: Vision synthesis
+---
+
 # Synthesis: Gas Town Forge
 
 **Date:** 2026-01-24

@@ -1,3 +1,11 @@
+---
+id: research-2026-01-24-temporal-ratchets-research
+type: research
+date: '2026-01-24'
+rig: gastown-forge
+status: Research synthesis
+---
+
 # Temporal Research for Gastown Forge Ratchets
 
 **Date:** 2026-01-24
